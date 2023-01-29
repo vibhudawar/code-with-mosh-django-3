@@ -14,6 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+# for including media files
+from django.conf import settings
+from django.conf.urls.static import static
+# 
 from django.urls import path, include
 import debug_toolbar
 
@@ -28,3 +32,9 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
+
+
+# include media files only in development project, not production
+if settings.DEBUG:
+    # include the path and URL
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

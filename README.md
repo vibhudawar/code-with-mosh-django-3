@@ -1,3 +1,3 @@
 # CodeWithMosh - Part 3 (django)
-Chapter: 1
-- Setting up the project
+Chapter: 2
+- Uploading files module

@@ -5,6 +5,7 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from store.admin import ProductAdmin
 from tags.models import TaggedItem
 from .models import User
+from store.admin import ProductImageInline
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
@@ -15,13 +16,14 @@ class UserAdmin(BaseUserAdmin):
         }),
     )
 
+
 class TagInline(GenericTabularInline):
     autocomplete_fields = ['tag']
     model = TaggedItem
 
 
 class CustomProductAdmin(ProductAdmin):
-    inlines = [TagInline]
+    inlines = [TagInline, ProductImageInline]
 
 
 admin.site.unregister(Product)
