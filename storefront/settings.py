@@ -179,3 +179,12 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
+
+# for setting up the default smtp backend server
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+# REAL EMAIL_PORT = 25, BUT TEST ON 2525
+EMAIL_PORT = 2525 
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_EMAIL')

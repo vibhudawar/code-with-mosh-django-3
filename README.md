@@ -1,3 +1,3 @@
 # CodeWithMosh - Part 3 (django)
-Chapter: 2
-- Uploading files module
+Chapter: 3
+- Sending Emails
