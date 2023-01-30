@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
+from celery.schedules import crontab
 
 load_dotenv()
 
@@ -188,3 +189,18 @@ EMAIL_HOST_PASSWORD = ''
 # REAL EMAIL_PORT = 25, BUT TEST ON 2525
 EMAIL_PORT = 2525 
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_EMAIL')
+
+
+# settings for celery
+CELERY_BROKER_URL = 'redis://localhost:6379/1'
+# scheduling periodic tasks
+CELERY_BEAT_SCHEDULE = {
+    # name the tasks
+    'notify_customers': {
+        # path of the task
+        'task': 'playground.tasks.notify_customers',
+        # schedule (in sec), for mins, use (5*60) = 5mins
+        'schedule': 5,
+        'args': ['Hello World'],
+    }
+}
