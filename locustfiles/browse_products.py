@@ -24,6 +24,10 @@ class WebsiteUser(HttpUser):
         print('Add product to cart')
         product_id = randint(1, 10)
         self.client.post(f'/store/carts/{self.cart_id}/items/', name='/store/carts/items', json={'product_id': product_id, 'quantity': 1})
+    
+    @task
+    def say_hello(self):
+        self.client.get('/playground/hello/')
 
     # inbuilt method to generate the unique cart_id whenever the user first browse the website
     def on_start(self):
