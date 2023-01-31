@@ -38,3 +38,5 @@ urlpatterns = [
 if settings.DEBUG:
     # include the path and URL
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # to include django-silk in the app
+    urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
