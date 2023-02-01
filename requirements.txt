@@ -40,6 +40,7 @@ gevent==22.10.2
 geventhttpclient==2.0.8
 gprof2dot==2022.7.29
 greenlet==2.0.2
+gunicorn==20.1.0
 humanize==4.5.0
 idna==3.4
 iniconfig==2.0.0
@@ -86,5 +87,6 @@ vine==5.0.0
 watchdog==2.2.1
 wcwidth==0.2.6
 Werkzeug==2.2.2
+whitenoise==6.3.0
 zope.event==4.6
 zope.interface==5.5.2
